@@ -17,6 +17,18 @@ build:
 
 requirements:
   build:
+    - if: build_platform != host_platform
+      then:
+        - cross-r-base ${{ r_base }}
+        - r-dplyr
+        - r-rcppparallel
+        - r-bh
+        - r-rlang
+        - r-tidyr
+        - r-rcppprogress
+        - r-purrr
+        - r-ggplot2
+        - r-rcpp
     - if: win
       then:
         - ${{ compiler("m2w64_c") }}
